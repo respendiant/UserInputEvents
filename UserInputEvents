@@ -34,6 +34,10 @@ function UserInputEvents.CreateBind(keycode, keydownOrKeyup) --keydownOrKeyup is
 	local keyEvent = Instance.new("BindableEvent")
 	print(tostring(keycode))
 	keyEvent.Name = tostring(keycode)
+	if eventFolder == nil then
+		print("Ah ha ha dummy you forgot to run init() lol I guess I'll do it for you.")
+		UserInputEvents.init()
+	end
 	keyEvent.Parent = eventFolder
 	Events[tostring(keycode)] = keyEvent
 	return keyEvent
